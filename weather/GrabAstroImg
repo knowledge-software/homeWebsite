@@ -1,0 +1,27 @@
+#!/bin/bash
+#
+here=$PWD
+
+cd /Users/servermachine/Sites/weather/
+if [ $1 = "earth" ]
+	sze="&imgsize=175"
+	lat="&lat=41.1&ns=North"
+	lon="&lon=73.7&ew=West"
+	alt="&alt=35785"
+
+	url="http://www.fourmilab.ch/cgi-bin/uncgi/Earth?img=learth.evif$sze&dynimg=y&opt=-l$lat$lon$alt&tle=&date=0&utc=&jd="
+	curl -fs "$url" -o earth.jpeg
+then
+	sze="&imgsize=175"
+	lat="&lat=41.1&ns=North"
+	lon="&lon=73.7&ew=West"
+	alt="&alt=35785"
+
+	#http://www.fourmilab.ch/cgi-bin/Earth?img=Moon.evif&imgsize=175&dynimg=y&opt=-l&lat=41.1&ns=North&lon=73.7&ew=West&alt=35785&tle=&date=0&utc=&jd=
+	# url="http://www.fourmilab.ch/cgi-bin/uncgi/Earth?img=Moon.evif$sze&dynimg=y&opt=-l$lat$lon$alt&tle=&date=0&utc=&jd="
+	url="http://www.fourmilab.ch/cgi-bin/Earth?img=Moon.evif$sze&dynimg=y&opt=-m$lat$lon$alt&tle=&date=0&utc=&jd="
+	curl -fs "$url" -o moon.jpeg
+fi
+
+cd "$here"
+

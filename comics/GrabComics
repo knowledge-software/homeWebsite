@@ -1,0 +1,29 @@
+#!/bin/bash
+#
+here=$PWD
+
+cd /Users/servermachine/Sites/comics/
+
+#
+# Some comics don't need to be uddated more than once per week
+if [ "$1" = "weekly" ]; then
+
+	perl ./GrabComics.pl http://www.gocomics.com/thefifthwave/ fifthwave.gif fw
+	python ./GetFoxTrot.py   # stores in foxtrot.gif
+
+#
+# Others can be updated daily [default]
+else  # daily
+
+	perl ./GrabComics.pl http://www.doonesbury.com/strip/dailydose/index.html doonsbury.gif db
+#	perl ./GrabComics.pl http://www.gocomics.com/foxtrot/index.phtml foxtrot.gif foxtrot
+	perl ./GrabComics.pl http://www.gocomics.com/nonsequitur/ nonsequitor.gif nq
+	python ./GetZits.py   # stores in zits.gif
+
+# political cartoons
+	perl ./GrabComics.pl http://www.gocomics.com/jeffdanziger/ jeffdanzinger.gif jd
+	perl ./GrabComics.pl http://www.gocomics.com/patoliphant/ patoliphant.gif po
+
+fi
+
+cd $here

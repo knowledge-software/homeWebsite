@@ -1,0 +1,11 @@
+#!/bin/bash
+#
+here=$PWD
+# Make sure our current directory is the site directory
+cd /Users/servermachine/Sites/comics/
+
+perl ./GrabComics.pl http://www.doonesbury.com/strip/dailydose/index.html doonsbury.gif db
+perl ./GrabComics.pl http://www.ucomics.com/foxtrot/index.phtml foxtrot.gif ft
+perl ./GrabComics.pl http://www.ucomics.com/nonsequitur/ nonsequitor.gif nq
+
+cd $here

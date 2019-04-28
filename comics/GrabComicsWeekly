@@ -1,0 +1,9 @@
+#!/bin/bash
+#
+here=$PWD
+# Make sure our current directory is the site directory
+cd /Users/servermachine/Sites/comics/
+
+perl ./GrabComics.pl http://www.ucomics.com/thefifthwave/ fifthwave.gif fw
+
+cd $here

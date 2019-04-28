@@ -1,0 +1,10 @@
+#!/bin/bash
+#
+here=$PWD
+
+cd /Users/servermachine/Sites/weather/
+
+#PERL5LIB=/sw/lib/perl5:/sw/lib/perl5/darwin
+/sw/bin/perl5.8.6 -I/sw/lib/perl5 -I/sw/lib/perl5/darwin GrabWeatherSummary.pl >../cgi-bin/weatherSummary.html
+
+cd $here

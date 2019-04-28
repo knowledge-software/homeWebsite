@@ -1,0 +1,15 @@
+#!/bin/bash
+#
+here=$PWD
+# Make sure our current directory is the site directory
+cd /Users/servermachine/Sites/weather/
+
+perl ./GrabNOAAData.pl "http://www.srh.noaa.gov/data/obhistory/KHPN.html"
+
+/sw/bin/ploticus -png  combo.p
+#/sw/bin/ploticus -png  temp.p
+#/sw/bin/ploticus -png  baro.p
+
+#./GetAstroImg
+
+cd $here
